@@ -351,10 +351,10 @@ class _WeatherScreenState extends State<WeatherScreen>
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              _miniStat('Terasa', '${w.feelsLike.round()}°',
+              _miniStat('Feels Like', '${w.feelsLike.round()}°',
                   Icons.thermostat_rounded),
               _miniStat(
-                  'Maks', '${w.tempMax.round()}°', Icons.arrow_upward_rounded),
+                  'Max', '${w.tempMax.round()}°', Icons.arrow_upward_rounded),
               _miniStat(
                   'Min', '${w.tempMin.round()}°', Icons.arrow_downward_rounded),
             ],
@@ -367,6 +367,7 @@ class _WeatherScreenState extends State<WeatherScreen>
   Widget _miniStat(String label, String value, IconData icon) {
     return Row(
       children: [
+        // Lingkaran background untuk ikon
         Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -376,17 +377,18 @@ class _WeatherScreenState extends State<WeatherScreen>
           child: Icon(icon, color: Colors.white, size: 18),
         ),
         const SizedBox(width: 12),
+        // Teks Label di atas, Nilai di bawah
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(value,
+            Text(label, // <-- Keterangan diletakkan di atas
+                style:
+                    GoogleFonts.poppins(color: Colors.white70, fontSize: 12)),
+            Text(value, // <-- Suhu diletakkan di bawah
                 style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 18,
                     fontWeight: FontWeight.w600)),
-            Text(label,
-                style:
-                    GoogleFonts.poppins(color: Colors.white70, fontSize: 12)),
           ],
         ),
       ],
