@@ -299,7 +299,7 @@ class _WeatherScreenState extends State<WeatherScreen>
         ),
         const SizedBox(height: 6),
         Text(
-          DateFormat("EEEE, d MMMM yyyy", 'id_ID').format(w.dateTime),
+          DateFormat("EEEE, d MMMM yyyy", 'en_US').format(w.dateTime),
           style: GoogleFonts.poppins(
               color: Colors.white70, fontSize: 15, fontWeight: FontWeight.w400),
         ),
