@@ -63,8 +63,7 @@ class WeatherData {
       sunset: DateTime.fromMillisecondsSinceEpoch(
           (json['sys']['sunset'] as int) * 1000),
       cloudiness: json['clouds']['all'] ?? 0,
-      dateTime: DateTime.fromMillisecondsSinceEpoch(
-          (json['dt'] as int) * 1000),
+      dateTime: DateTime.fromMillisecondsSinceEpoch((json['dt'] as int) * 1000),
     );
   }
 }
@@ -114,8 +113,8 @@ class ForecastDay {
       if (temp < tempMin) tempMin = temp;
       if (temp > tempMax) tempMax = temp;
 
-      DateTime dt = DateTime.fromMillisecondsSinceEpoch(
-          (h['dt'] as int) * 1000);
+      DateTime dt =
+          DateTime.fromMillisecondsSinceEpoch((h['dt'] as int) * 1000);
       if (dt.hour >= 6 && dt.hour < 12) {
         tempMorning += temp;
         morningCount++;
@@ -135,9 +134,8 @@ class ForecastDay {
       if (pop > maxPop) maxPop = pop;
     }
 
-    String dominantCondition = conditionCount.entries
-        .reduce((a, b) => a.value > b.value ? a : b)
-        .key;
+    String dominantCondition =
+        conditionCount.entries.reduce((a, b) => a.value > b.value ? a : b).key;
 
     // Find icon for dominant condition
     String icon = '01d';
@@ -160,9 +158,15 @@ class ForecastDay {
       date: date,
       tempMin: tempMin == double.infinity ? 0 : tempMin,
       tempMax: tempMax == double.negativeInfinity ? 0 : tempMax,
-      tempMorning: morningCount > 0 ? tempMorning / morningCount : (tempMin + tempMax) / 2,
-      tempAfternoon: afternoonCount > 0 ? tempAfternoon / afternoonCount : (tempMin + tempMax) / 2,
-      tempEvening: eveningCount > 0 ? tempEvening / eveningCount : (tempMin + tempMax) / 2,
+      tempMorning: morningCount > 0
+          ? tempMorning / morningCount
+          : (tempMin + tempMax) / 2,
+      tempAfternoon: afternoonCount > 0
+          ? tempAfternoon / afternoonCount
+          : (tempMin + tempMax) / 2,
+      tempEvening: eveningCount > 0
+          ? tempEvening / eveningCount
+          : (tempMin + tempMax) / 2,
       description: description,
       icon: icon,
       mainCondition: dominantCondition,

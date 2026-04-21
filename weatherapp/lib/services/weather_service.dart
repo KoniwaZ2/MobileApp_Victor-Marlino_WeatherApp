@@ -25,8 +25,7 @@ class WeatherService {
     }
   }
 
-  Future<WeatherData> getCurrentWeatherByCoords(
-      double lat, double lon) async {
+  Future<WeatherData> getCurrentWeatherByCoords(double lat, double lon) async {
     final url = Uri.parse(
         '$_baseUrl/weather?lat=$lat&lon=$lon&appid=$apiKey&units=metric&lang=id');
 
@@ -54,8 +53,7 @@ class WeatherService {
     }
   }
 
-  Future<List<ForecastDay>> getForecastByCoords(
-      double lat, double lon) async {
+  Future<List<ForecastDay>> getForecastByCoords(double lat, double lon) async {
     final url = Uri.parse(
         '$_baseUrl/forecast?lat=$lat&lon=$lon&appid=$apiKey&units=metric&lang=id');
 
@@ -73,8 +71,8 @@ class WeatherService {
     Map<String, List<Map<String, dynamic>>> groupedByDay = {};
 
     for (var item in list) {
-      DateTime dt = DateTime.fromMillisecondsSinceEpoch(
-          (item['dt'] as int) * 1000);
+      DateTime dt =
+          DateTime.fromMillisecondsSinceEpoch((item['dt'] as int) * 1000);
       String dateKey =
           '${dt.year}-${dt.month.toString().padLeft(2, '0')}-${dt.day.toString().padLeft(2, '0')}';
       if (!groupedByDay.containsKey(dateKey)) {
