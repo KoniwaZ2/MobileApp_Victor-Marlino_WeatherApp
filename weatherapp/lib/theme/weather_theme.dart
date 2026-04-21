@@ -118,30 +118,6 @@ class WeatherTheme {
     int index = ((degrees + 22.5) / 45).floor() % 8;
     return directions[index];
   }
-
-  static String getConditionIndonesian(String condition) {
-    switch (condition.toLowerCase()) {
-      case 'clear':
-        return 'Cerah';
-      case 'clouds':
-        return 'Berawan';
-      case 'rain':
-        return 'Hujan';
-      case 'drizzle':
-        return 'Gerimis';
-      case 'thunderstorm':
-        return 'Badai Petir';
-      case 'snow':
-        return 'Salju';
-      case 'mist':
-      case 'fog':
-        return 'Berkabut';
-      case 'haze':
-        return 'Kabut Asap';
-      default:
-        return condition;
-    }
-  }
 }
 
 class WeatherThemeData {

@@ -367,7 +367,6 @@ class _WeatherScreenState extends State<WeatherScreen>
   Widget _miniStat(String label, String value, IconData icon) {
     return Row(
       children: [
-        // Lingkaran background untuk ikon
         Container(
           padding: const EdgeInsets.all(10),
           decoration: BoxDecoration(
@@ -377,14 +376,13 @@ class _WeatherScreenState extends State<WeatherScreen>
           child: Icon(icon, color: Colors.white, size: 18),
         ),
         const SizedBox(width: 12),
-        // Teks Label di atas, Nilai di bawah
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(label, // <-- Keterangan diletakkan di atas
+            Text(label,
                 style:
                     GoogleFonts.poppins(color: Colors.white70, fontSize: 12)),
-            Text(value, // <-- Suhu diletakkan di bawah
+            Text(value,
                 style: GoogleFonts.poppins(
                     color: Colors.white,
                     fontSize: 18,

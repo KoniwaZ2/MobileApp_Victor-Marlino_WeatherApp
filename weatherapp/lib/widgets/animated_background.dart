@@ -55,7 +55,6 @@ class _AnimatedWeatherBackgroundState extends State<AnimatedWeatherBackground>
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        // Base gradient
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -65,7 +64,6 @@ class _AnimatedWeatherBackgroundState extends State<AnimatedWeatherBackground>
             ),
           ),
         ),
-        // Animated overlay blobs
         AnimatedBuilder(
           animation: _controller,
           builder: (context, child) {
@@ -80,7 +78,6 @@ class _AnimatedWeatherBackgroundState extends State<AnimatedWeatherBackground>
             );
           },
         ),
-        // Subtle mesh overlay
         Container(
           decoration: BoxDecoration(
             gradient: RadialGradient(
@@ -135,7 +132,6 @@ class WeatherParticlePainter extends CustomPainter {
 
       switch (particleType) {
         case 'rain':
-          // Rain drops
           canvas.drawRRect(
             RRect.fromRectAndRadius(
               Rect.fromLTWH(
@@ -150,7 +146,6 @@ class WeatherParticlePainter extends CustomPainter {
           );
           break;
         case 'snow':
-          // Snowflakes
           canvas.drawCircle(
             Offset(animX * size.width, animY * size.height),
             p.size * 0.6,
@@ -158,7 +153,6 @@ class WeatherParticlePainter extends CustomPainter {
           );
           break;
         case 'cloud':
-          // Floating orbs
           canvas.drawCircle(
             Offset(animX * size.width,
                 p.y * size.height + sin(progress * pi * 2) * 10),
@@ -169,7 +163,6 @@ class WeatherParticlePainter extends CustomPainter {
           );
           break;
         case 'sun':
-          // Glowing particles
           canvas.drawCircle(
             Offset(animX * size.width,
                 p.y * size.height + sin(progress * pi * 2 + p.angle) * 15),
