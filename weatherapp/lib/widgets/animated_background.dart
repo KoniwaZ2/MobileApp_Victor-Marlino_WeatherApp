@@ -33,14 +33,16 @@ class _AnimatedWeatherBackgroundState extends State<AnimatedWeatherBackground>
   }
 
   void _initParticles() {
-    _particles = List.generate(30, (i) => Particle(
-      x: _random.nextDouble(),
-      y: _random.nextDouble(),
-      size: _random.nextDouble() * 8 + 2,
-      speed: _random.nextDouble() * 0.3 + 0.1,
-      opacity: _random.nextDouble() * 0.6 + 0.2,
-      angle: _random.nextDouble() * pi * 2,
-    ));
+    _particles = List.generate(
+        30,
+        (i) => Particle(
+              x: _random.nextDouble(),
+              y: _random.nextDouble(),
+              size: _random.nextDouble() * 8 + 2,
+              speed: _random.nextDouble() * 0.3 + 0.1,
+              opacity: _random.nextDouble() * 0.6 + 0.2,
+              angle: _random.nextDouble() * pi * 2,
+            ));
   }
 
   @override
